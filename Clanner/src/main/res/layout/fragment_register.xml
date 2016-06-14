@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:padding="10dp"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/register_back"-->
+            <!--android:src="@drawable/back"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"/>-->
+
+        <!--<TextView-->
+            <!--android:text="注册"-->
+            <!--android:textSize="20sp"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"/>-->
+
+    <!--</RelativeLayout>-->
+
+    <!--<View-->
+        <!--android:background="@android:color/darker_gray"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="2dp"/>-->
+
+    <RelativeLayout
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/et_account"
+            android:layout_marginTop="10dp"
+            android:hint="@string/et_account_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btn_send"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/btn_color"
+            android:layout_below="@+id/et_account"
+            android:text="@string/btn_send_value"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"/>
+
+        <EditText
+            android:id="@+id/et_code"
+            android:layout_toRightOf="@+id/btn_send"
+            android:layout_marginTop="10dp"
+            android:hint="@string/et_code_value"
+            android:layout_below="@+id/et_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/register_username"
+            android:layout_marginTop="10dp"
+            android:hint="@string/et_username_value"
+            android:layout_below="@+id/et_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:layout_marginTop="10dp"
+            android:inputType="textPassword"
+            android:id="@+id/redister_password"
+            android:hint="@string/et_password_value"
+            android:layout_below="@+id/register_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:layout_marginTop="10dp"
+            android:inputType="textPassword"
+            android:id="@+id/register_surepassword"
+            android:hint="@string/et_surepassword_value"
+            android:layout_below="@+id/redister_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btn_register"
+            android:background="@drawable/btn_color"
+            android:text="@string/btn_register_value"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/register_surepassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

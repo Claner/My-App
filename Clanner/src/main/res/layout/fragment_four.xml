@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white">
+
+        <ImageView
+            android:id="@+id/image_avatar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/header"/>
+
+        <TextView
+            android:id="@+id/tv_1"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_toRightOf="@+id/image_avatar"
+            android:gravity="center"
+            android:text="用户名"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_toRightOf="@+id/tv_1"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/tv_2"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/tv_1"
+            android:layout_toRightOf="@+id/image_avatar"
+            android:gravity="center"
+            android:text="ID"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/tv_name"
+            android:layout_toRightOf="@+id/tv_2"
+            android:gravity="center"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <!--<ProgressBar-->
+            <!--android:id="@+id/four_progressbar"-->
+            <!--android:visibility="gone"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"/>-->
+
+        <Button
+            android:id="@+id/btn_setting"
+            android:textSize="20sp"
+            android:layout_marginBottom="20dp"
+            android:textColor="@android:color/darker_gray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/btn_color"
+            android:text="@string/btn_setting_value"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

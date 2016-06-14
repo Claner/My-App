@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Chat</string>
+    <string name="et_username_value">请输入用户名(或账号)</string>
+    <string name="et_password_value">请输入密码</string>
+    <string name="btn_submit_value">确认</string>
+    <string name="tv_register_value">注册账号</string>
+    <string name="tv_promise_value">用户协议</string>
+    <string name="et_account_value">请输入申请的账号</string>
+    <string name="btn_send_value">发送验证码</string>
+    <string name="et_code_value">请输入验证码</string>
+    <string name="register_username_value">请输入用户名</string>
+    <string name="et_surepassword_value">请确认密码</string>
+    <string name="btn_register_value">注册</string>
+    <string name="tv_forget_value">忘记密码</string>
+    <string name="et_forget_value">请输入账号</string>
+    <string name="et_newPassword_value">请输入新的密码</string>
+    <string name="btn_setting_value">设置</string>
+    <string name="add_value">添加</string>
+    <string name="group_chat_value">群聊</string>
+    <string name="monet_value">钱包</string>
+    <string name="btn_gridview_value">GridView</string>
+    <string name="btn_listview_value">ListView</string>
+    <string name="btn_hor_gridview_value">Hor_GridView</string>
+    <string name="btn_notifications_value">新消息提醒</string>
+    <string name="btn_donotdisturb_value">勿扰模式</string>
+    <string name="btn_chat_value">聊天</string>
+    <string name="btn_privacy_value">隐私</string>
+    <string name="btn_general_value">通用</string>
+    <string name="btn_myaccount_value">账号与安全</string>
+    <string name="btn_facebook_value">在facebook上赞我们</string>
+    <string name="btn_twitter">在Twitter上关注我们</string>
+    <string name="btn_about_value">关于</string>
+    <string name="btn_logout_value">退出</string>
+    <string name="btn_imageSelter_value">图片选择器</string>
+    <string name="dir_item_name_value">所有图片</string>
+    <string name="dir_count_value">100张</string>
+
+
+    <string name="action_search">Search</string>
+    <string name="action_add">Add</string>
+    <string name="menu_group_chat">Group Chat</string>
+    <string name="menu_feedback">Help</string>
+    <string name="menu_addfriend">Add Contacts</string>
+    <string name="menu_scan">Scan SQ Code</string>
+    <string name="tab_contact">Contacts</string>
+    <string name="tab_found">Outside World</string>
+    <string name="tab_me">me</string>
+
+
+</resources>

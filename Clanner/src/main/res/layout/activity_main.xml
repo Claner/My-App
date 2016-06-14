@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/fragment_container"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:hyman="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@android:color/white"
+              android:orientation="vertical"
+              tools:context=".BaseActivity">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </android.support.v4.view.ViewPager>
+
+    <LinearLayout
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal">
+
+        <com.chat.ui.view.MyView
+            android:id="@+id/indicator_one"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            hyman:my_icon="@drawable/ic_menu_emoticons"
+            hyman:my_text="@string/tab_found"
+            hyman:my_text_size="12sp"/>
+
+        <com.chat.ui.view.MyView
+            android:id="@+id/indicator_two"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            hyman:my_icon="@drawable/ic_menu_start_conversation"
+            hyman:my_text="@string/app_name"
+            hyman:my_text_size="12sp"/>
+
+        <com.chat.ui.view.MyView
+            android:id="@+id/indicator_three"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            hyman:my_icon="@drawable/ic_menu_friendslist"
+            hyman:my_text="@string/tab_contact"
+            hyman:my_text_size="12sp"/>
+
+        <com.chat.ui.view.MyView
+            android:id="@+id/indicator_four"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            hyman:my_icon="@drawable/ic_menu_allfriends"
+            hyman:my_text="@string/tab_me"
+            hyman:my_text_size="12sp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

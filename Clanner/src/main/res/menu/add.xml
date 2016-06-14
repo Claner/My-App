@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <!--<item-->
+        <!--android:id="@+id/gridview"-->
+        <!--android:title="gridview"/>-->
+
+    <!--<item-->
+        <!--android:id="@+id/listview"-->
+        <!--android:title="listview"/>-->
+
+    <!--<item-->
+        <!--android:id="@+id/hor_gridview"-->
+        <!--android:title="hor_gridview"/>-->
+
+    <item
+        android:id="@+id/add"
+        android:title="@string/add_value"/>
+
+    <item
+        android:id="@+id/group_chat"
+        android:title="@string/group_chat_value"/>
+
+    <item
+        android:id="@+id/money"
+        android:title="@string/monet_value"/>
+
+</menu>
