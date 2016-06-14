@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">OkHttp</string>
+    <string name="getHtml_value">Get Html</string>
+</resources>

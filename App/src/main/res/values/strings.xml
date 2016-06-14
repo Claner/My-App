@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">App</string>
+    <string name="btn_sec_value">SecondActivity</string>
+    <string name="btn_image_value">LoadImage</string>
+    <string name="btn_get_value">Get</string>
+    <string name="btn_post_value">Post</string>
+    <string name="textView_value">登陆</string>
+    <string name="set_value">设置</string>
+    <string name="btn_listview_value">Activity4</string>
+    <string name="content_value">下拉刷新</string>
+    <string name="lastupdatetime_value">上次刷新时间为</string>
+    <string name="tv_1_value">正在加载</string>
+    <string name="tv_2_value">Welcome Back</string>
+    <string name="thirdActivity_value">Activity3</string>
+    <string name="et_phoneNumber_value">手机号</string>
+    <string name="et_passWord_value">密码</string>
+    <string name="login_value">登陆</string>
+    <string name="register_value">注册</string>
+    <string name="forget_value">忘记密码？</string>
+    <string name="btn_getCode_value">获取验证码</string>
+    <string name="et_getCode_value">请输入手机号码</string>
+    <string name="sure_value">确认</string>
+
+</resources>

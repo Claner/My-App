@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_getCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_getCode_value"
+        android:textColor="@color/black"
+        android:textSize="15dp"/>
+
+    <EditText
+        android:id="@+id/et_getCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/btn_getCode"
+        android:hint="@string/et_getCode_value"/>
+
+    <Button
+        android:id="@+id/sure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_getCode"
+        android:text="@string/sure_value"
+        android:textSize="20sp"/>
+
+
+
+</RelativeLayout>

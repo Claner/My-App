@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Chat</string>
+    <string name="main_fragment_tv1_value">这是启动界面</string>
+    <string name="main_btn_value">点击跳转到个人模块</string>
+    <string name="main_second_btn_value">点击跳转到注册界面</string>
+    <string name="main_tablayout_value">点击跳转到tablayout界面</string>
+    <string name="first_tv_value">这是用户模块的第一个Fragment</string>
+    <string name="username_edt_value">请输入用户名</string>
+    <string name="paaaword_edt_value">请输入密码</string>
+    <string name="submit_btn_value">确认</string>
+    <string name="register_text_value">注册账号</string>
+    <string name="promise_text_value">用户协议</string>
+    <string name="tv_back_value">用户登录模块</string>
+    <string name="sec_tv1_value">这是用户模块的第二个Fragment,下面将显示上一个界面传递过来的信息</string>
+    <string name="sec_tv2_value">用户注册模块</string>
+    <string name="third_tv1_value">这是用户模块的第三个Fragment</string>
+    <string name="third_text_value">欢迎使用XXXX公司APP,你得同意本协议才能注册,欢迎使用XXXX公司APP,
+        你得同意本协议才能注册,欢迎使用XXXX公司APP,你得同意本协议才能注册</string>
+    <string name="third_tv2_value">用户协议模块</string>
+</resources>

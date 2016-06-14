@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+    <EditText
+        android:id="@+id/et_sendCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/et_sendCode_value"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/btn_sendCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_sendCode"
+        android:text="@string/btn_sendCode_value"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/et_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_sendCode"
+        android:layout_toRightOf="@+id/btn_sendCode"
+        android:hint="@string/et_code_value"/>
+
+    <EditText
+        android:id="@+id/et_userName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_code"
+        android:hint="@string/et_userName_value"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_userName"
+        android:hint="@string/et_passWord_value"
+        android:inputType="textPassword"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/et_surepassWord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_password"
+        android:hint="@string/et_surepassword_value"
+        android:inputType="textPassword"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/tv_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_surepassWord"
+        android:text="@string/tv_1_value"
+        android:textSize="20sp"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_1"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radiobtn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radiobtn1_value"
+            android:textSize="20sp"/>
+
+        <RadioButton
+            android:id="@+id/radiobtn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radiobtn2_value"
+            android:textSize="20sp"/>
+
+        <RadioButton
+            android:id="@+id/radiobtn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radiobtn3_value"
+            android:textSize="20sp"/>
+
+        <RadioButton
+            android:id="@+id/radiobtn4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radiobtn4_value"
+            android:textSize="20sp"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioGroup"
+        android:text="@string/register_value"
+        android:textSize="25sp"/>
+
+</RelativeLayout>
