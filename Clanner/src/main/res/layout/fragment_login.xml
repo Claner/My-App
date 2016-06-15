@@ -3,55 +3,65 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:layout_centerInParent="true"
-              android:layout_marginTop="70dp"
-              android:orientation="vertical"
-              android:padding="10dp">
+              android:background="#e3e3e3"
+              android:orientation="vertical">
 
     <RelativeLayout
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp">
 
-        <ImageView
-            android:id="@+id/image_header"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+        <TextView
+            android:text="WelCome"
+            android:textSize="35sp"
+            android:textColor="#333333"
+            android:gravity="center"
             android:layout_centerInParent="true"
-            android:src="@drawable/header"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
     </RelativeLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="50dp"
+        android:id="@+id/usernameWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <EditText
             android:id="@+id/et_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:hint="@string/et_username_value"
-            android:inputType="text"/>
+            android:inputType="textEmailAddress"/>
+    </android.support.design.widget.TextInputLayout>
 
-        <!--<Spinner-->
-            <!--android:id="@+id/spinner"-->
-            <!--android:layout_centerInParent="true"-->
-            <!--android:layout_toRightOf="@+id/et_username"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
+    <!--<Spinner-->
+    <!--android:id="@+id/spinner"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--android:layout_toRightOf="@+id/et_username"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
 
-        <!--</Spinner>-->
+    <!--</Spinner>-->
 
-    <EditText
-        android:id="@+id/et_password"
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/passwordWrapper"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="@string/et_password_value"
-        android:inputType="textPassword"/>
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"/>
+    </android.support.design.widget.TextInputLayout>
 
     <Button
         android:id="@+id/btn_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/btn_color"
+        android:layout_marginTop="4dp"
         android:text="@string/btn_submit_value"
         android:textSize="20sp"/>
 
@@ -61,6 +71,7 @@
         android:layout_marginTop="10dp">
 
         <TextView
+            android:layout_marginLeft="4dp"
             android:id="@+id/tv_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -69,6 +80,7 @@
 
         <TextView
             android:id="@+id/tv_promise"
+            android:layout_marginRight="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -76,6 +88,7 @@
 
         <TextView
             android:id="@+id/tv_forget"
+            android:layout_marginBottom="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -86,11 +99,11 @@
             android:textSize="15sp"/>
 
         <!--<ProgressBar-->
-            <!--android:id="@+id/progressbar"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_below="@+id/tv_register"-->
-            <!--android:visibility="gone"/>-->
+        <!--android:id="@+id/progressbar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/tv_register"-->
+        <!--android:visibility="gone"/>-->
 
     </RelativeLayout>
 

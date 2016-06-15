@@ -2,6 +2,7 @@ package com.chat.ui.fragment;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
 import android.util.Log;
@@ -14,6 +15,7 @@ import com.chat.MyApplication;
 import com.chat.entity.CheckHelper;
 import com.chat.entity.ForgetPasswordHelper;
 import com.chat.ui.activity.R;
+import com.chat.ui.view.TimeButton;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -35,6 +37,7 @@ public class ForgetPasswordFragment extends BaseFragment implements View.OnClick
     private String checkUrl = "http://tpwhcm.com/TDetc/Home/User/checkCode";
     private Gson gson;
     private Handler handler;
+    private TimeButton button;
     private EditText et_send;
     private EditText et_check;
     private String phoneNumber;
@@ -51,7 +54,13 @@ public class ForgetPasswordFragment extends BaseFragment implements View.OnClick
         et_send = (EditText) view.findViewById(R.id.et_forget);
         et_check = (EditText) view.findViewById(R.id.et_forget_code);
 //        view.findViewById(R.id.forget_back).setOnClickListener(this);
-        view.findViewById(R.id.btn_forget_code).setOnClickListener(this);
+//        view.findViewById(R.id.btn_forget_code).setOnClickListener(this);
+        final TextInputLayout accountWarpper = (TextInputLayout) view.findViewById(R.id.account_wrapper);
+        final TextInputLayout codeWrapper = (TextInputLayout) view.findViewById(R.id.code_wrapper);
+        accountWarpper.setHint("请输入账号");
+        codeWrapper.setHint("请输入验证码");
+        button = (TimeButton) view.findViewById(R.id.btn_forget_code);
+        button.setOnClickListener(this);
         view.findViewById(R.id.btn_forget).setOnClickListener(this);
         ActionBar actionBar = getHoldingActivity().getSupportActionBar();
         //给左上角图标的左边加上一个返回的图标
@@ -69,14 +78,14 @@ public class ForgetPasswordFragment extends BaseFragment implements View.OnClick
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-//            case R.id.forget_back:
-//                removeFragment();
-//                break;
             case R.id.btn_forget_code:
                 SendMsg();
                 break;
+//            case R.id.btn_forget_code:
+//                SendMsg();
+//                break;
             case R.id.btn_forget:
-//                addFragment(ModifyPasswordFragment.newInstance());
+                addFragment(ModifyPasswordFragment.newInstance());
                 CheckMsgCode();
                 break;
         }
@@ -84,12 +93,18 @@ public class ForgetPasswordFragment extends BaseFragment implements View.OnClick
 
     /**
      * 发送验证码
+     *
+     * 这里有个bug，就算没有输入账号自定义的Button也会显示为60s
+     * 于是用了个粗暴的方法解决
+     * 即如果账号为空1则设置显示倒计时的时长为很短
+     * 若不为空则设置为60s
      */
     private void SendMsg() {
         phoneNumber = et_send.getText().toString().trim();
 
         if (TextUtils.isEmpty(phoneNumber)) {
             Toast.makeText(getHoldingActivity().getApplicationContext(), "请输入账号以获取验证码", Toast.LENGTH_SHORT).show();
+            button.setTextAfter("秒后重新获取").setTextBefore("点击获取验证码").setTimeLenght(1);
         } else {
             OkHttpClient client = MyApplication.getClient(getHoldingActivity().getApplicationContext());
             RequestBody body = new FormBody.Builder().add("phone", phoneNumber).build();
@@ -111,6 +126,7 @@ public class ForgetPasswordFragment extends BaseFragment implements View.OnClick
                                 int code = helper.getCode();
                                 if (code == 20000) {
                                     Toast.makeText(getHoldingActivity().getApplicationContext(), "发送成功，请注意查收", Toast.LENGTH_SHORT).show();
+                                    button.setTextAfter("秒后重新获取").setTextBefore("点击获取验证码").setTimeLenght(60 * 1000);
                                 } else {
                                     Toast.makeText(getHoldingActivity().getApplicationContext(), "该账号未注册", Toast.LENGTH_SHORT).show();
                                 }
@@ -167,11 +183,17 @@ public class ForgetPasswordFragment extends BaseFragment implements View.OnClick
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
                 removeFragment();
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onDestroy() {
+        button.onDestroy();
+        super.onDestroy();
     }
 }

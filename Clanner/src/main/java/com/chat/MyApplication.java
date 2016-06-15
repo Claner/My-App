@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import okhttp3.Cookie;
 import okhttp3.CookieJar;
@@ -17,6 +18,9 @@ import okhttp3.OkHttpClient;
  * Created by Clanner on 2016/5/24.
  */
 public class MyApplication extends Application {
+
+    //用于存放倒计时时间
+    public static Map<String,Long> map;
 
     public static OkHttpClient client;
 //    private static MyApplication instance;

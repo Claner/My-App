@@ -181,16 +181,10 @@ public class FragmentFour extends BaseFragment implements View.OnClickListener {
                 showDialog();
                 break;
             case R.id.btn_setting:
-                Setting();
+                Intent intent = new Intent(getHoldingActivity().getApplicationContext(), SettingActivity.class);
+                startActivity(intent);
                 break;
         }
-    }
-
-    private void Setting() {
-//        addFragment(SettingFragment.newInstance());
-        Intent intent = new Intent(getHoldingActivity().getApplicationContext(), SettingActivity.class);
-        startActivity(intent);
-        getHoldingActivity().finish();
     }
 
     /**

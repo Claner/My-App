@@ -14,8 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LoginActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+            android:name=".WelcomeActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -23,19 +23,20 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".LoginActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
         </activity>
         <activity
-            android:name=".SettingActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
-
-        </activity>
-        <activity
             android:name=".ImageViewActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
-
         </activity>
+        <activity
+            android:name=".SettingActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
     </application>
 
 </manifest>

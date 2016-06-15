@@ -2,17 +2,33 @@ package com.chat.ui.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.ActionBar;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.chat.ui.activity.LoginActivity;
 import com.chat.ui.activity.R;
+import com.chat.ui.fragment.fragmentFromSetting.AboutFragment;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Clanner on 2016/6/3.
  */
-public class SettingFragment extends BaseFragment implements View.OnClickListener {
+public class SettingFragment extends BaseFragment implements ListView.OnItemClickListener {
+
+    private ListView listView;
+    private ListView listView2;
+    private List<String> datas;
+    private List<String> datas2;
+    //    private SettingAdapter adapter
+    private ArrayAdapter<String> adapter;
+    private ArrayAdapter<String> adapter2;
 
     public static SettingFragment newInstance() {
         return new SettingFragment();
@@ -25,59 +41,114 @@ public class SettingFragment extends BaseFragment implements View.OnClickListene
 
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
-//        view.findViewById(R.id.indicator_one).setVisibility(View.GONE);
-        setLinstener(view);
+        setDatas();
+        initView(view);
     }
 
-    private void setLinstener(View view) {
-        view.findViewById(R.id.btn_notifications).setOnClickListener(this);
-        view.findViewById(R.id.btn_donotdisturb).setOnClickListener(this);
-        view.findViewById(R.id.btn_chat).setOnClickListener(this);
-        view.findViewById(R.id.btn_privacy).setOnClickListener(this);
-        view.findViewById(R.id.btn_general).setOnClickListener(this);
-        view.findViewById(R.id.btn_myaccount).setOnClickListener(this);
-        view.findViewById(R.id.btn_facebook).setOnClickListener(this);
-        view.findViewById(R.id.btn_twitter).setOnClickListener(this);
-        view.findViewById(R.id.btn_about).setOnClickListener(this);
-        view.findViewById(R.id.btn_logout).setOnClickListener(this);
+    private void initView(View view) {
+
+        setHasOptionsMenu(true);
+        ActionBar actionBar = getHoldingActivity().getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("设置");
+
+        listView = (ListView) view.findViewById(R.id.listview);
+        adapter = new ArrayAdapter<String>(getContext(), R.layout.item_setting, datas);
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(this);
+
+        listView2 = (ListView) view.findViewById(R.id.listview2);
+        adapter2 = new ArrayAdapter<String>(getContext(), R.layout.item_setting, datas2);
+        listView2.setAdapter(adapter2);
+        listView2.setOnItemClickListener(this);
+//        adapter = new SettingAdapter(getHoldingActivity().getApplicationContext(), datas);
+//        listView.setAdapter(adapter);
+    }
+
+    /**
+     * 设置数据
+     */
+    private void setDatas() {
+        datas = new ArrayList<>(Arrays.asList("Notifications", "Do Not Disturb", "Chat", "Privacy",
+                "General", "My Account", "Like Us On Facebook", "Follow Us On Twitter"));
+
+        datas2 = new ArrayList<>(Arrays.asList("About", "Log Out"));
+//        datas = new ArrayList<>();
+//        datas.add("Notifications");
+//        datas.add("Do Not Disturb");
+//        datas.add("Chat");
+//        datas.add("Privacy");
+//        datas.add("General");
+//        datas.add("My Account");
+//        datas.add("Like Us On Facebook");
+//        datas.add("Follow Us On Twitter");
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btn_notifications:
-                Toast.makeText(getHoldingActivity().getApplicationContext(), "新消息提醒", Toast.LENGTH_SHORT).show();
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        switch (adapterView.getId()) {
+            case R.id.listview:
+                list1_onClickListener(i);
                 break;
-            case R.id.btn_donotdisturb:
-                Toast.makeText(getHoldingActivity().getApplicationContext(), "勿扰模式", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btn_chat:
-                Toast.makeText(getHoldingActivity().getApplicationContext(), "聊天", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btn_privacy:
-                Toast.makeText(getHoldingActivity().getApplicationContext(), "隐私", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btn_general:
-                Toast.makeText(getHoldingActivity().getApplicationContext(), "通用", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btn_myaccount:
-                Toast.makeText(getHoldingActivity().getApplicationContext(), "账号与安全", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btn_facebook:
-                Toast.makeText(getHoldingActivity().getApplicationContext(), "在FaceBook上赞我们", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btn_twitter:
-                Toast.makeText(getHoldingActivity().getApplicationContext(), "在Twitter上关注我们", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btn_about:
-                Toast.makeText(getHoldingActivity().getApplicationContext(), "关于", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btn_logout:
-                Intent intent = new Intent(getHoldingActivity().getApplicationContext(), LoginActivity.class);
-                startActivity(intent);
-                Log.d("Hello", "exit");
-                getHoldingActivity().finish();
+            case R.id.listview2:
+                list2_onClickListener(i);
                 break;
         }
+    }
+
+    /**
+     * 列表一的点击事件
+     */
+    private void list1_onClickListener(int i) {
+        switch (i) {
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+            case 7:
+                break;
+        }
+    }
+
+    /**
+     * 列表二的点击事件
+     */
+    private void list2_onClickListener(int i) {
+        switch (i) {
+            case 0:
+                addFragment(AboutFragment.newInstance());
+                break;
+            case 1:
+                LogOut();
+                break;
+        }
+    }
+
+    private void LogOut() {
+        getHoldingActivity().finish();
+        //发送一条广播去关闭Activity
+        getHoldingActivity().getApplicationContext().sendBroadcast(new Intent("finish"));
+        Intent intent = new Intent(getHoldingActivity().getApplicationContext(), LoginActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                removeFragment();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

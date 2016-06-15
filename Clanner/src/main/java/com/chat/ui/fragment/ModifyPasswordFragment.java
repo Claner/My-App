@@ -2,6 +2,7 @@ package com.chat.ui.fragment;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
 import android.util.Log;
@@ -34,8 +35,10 @@ public class ModifyPasswordFragment extends BaseFragment implements View.OnClick
     private Gson gson;
     private Handler handler;
 
+    //控件
     private EditText et_newPassword;
     private EditText et_sureNewPassword;
+
     private String newPassword;
     private String sureNewPassword;
 
@@ -48,6 +51,10 @@ public class ModifyPasswordFragment extends BaseFragment implements View.OnClick
         setHasOptionsMenu(true);
         et_newPassword = (EditText) view.findViewById(R.id.et_newPassword);
         et_sureNewPassword = (EditText) view.findViewById(R.id.et_sureNewPassword);
+        final TextInputLayout newPasswordWrapper = (TextInputLayout) view.findViewById(R.id.newPassword_wrapper);
+        final TextInputLayout sureNewPasswordWarpper = (TextInputLayout) view.findViewById(R.id.sureNewPassword_wrapper);
+        newPasswordWrapper.setHint("请输入新的密码");
+        sureNewPasswordWarpper.setHint("请确认密码");
 //        view.findViewById(R.id.modify_back).setOnClickListener(this);
         view.findViewById(R.id.btn_modify).setOnClickListener(this);
         ActionBar actionBar = getHoldingActivity().getSupportActionBar();
@@ -64,7 +71,7 @@ public class ModifyPasswordFragment extends BaseFragment implements View.OnClick
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
                 removeFragment();
                 break;

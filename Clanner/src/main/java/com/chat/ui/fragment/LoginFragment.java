@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
 import android.util.Log;
@@ -54,6 +55,10 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
 
         et_username = (EditText) view.findViewById(R.id.et_username);
         et_password = (EditText) view.findViewById(R.id.et_password);
+        final TextInputLayout usernameWrapper = (TextInputLayout) view.findViewById(R.id.usernameWrapper);
+        final TextInputLayout passwordWrapper = (TextInputLayout) view.findViewById(R.id.passwordWrapper);
+        usernameWrapper.setHint("Account");
+        passwordWrapper.setHint("Password");
         ActionBar actionBar = getHoldingActivity().getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(false);
         actionBar.setTitle(R.string.app_name);

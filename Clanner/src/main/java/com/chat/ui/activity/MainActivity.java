@@ -1,9 +1,14 @@
 package com.chat.ui.activity;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -31,6 +36,17 @@ public class MainActivity extends AppActivity implements View.OnClickListener, V
 
     private List<MyView> mTabIndicators = new ArrayList<MyView>();
 
+    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            //接收广播，若收到的信号为finish则finish当前Activity
+            if (intent.getAction().equals("finish")) {
+                Log.e("Hello","收到终止Activity的广播");
+                finish();
+            }
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +66,12 @@ public class MainActivity extends AppActivity implements View.OnClickListener, V
         mViewPager.setAdapter(mAdapter);
         initEvent();
         doubleClickExitHelper = new DoubleClickExitHelper(this);
+
+        //注册广播
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("finish");
+        registerReceiver(broadcastReceiver, filter);
+
     }
 
     @Override
@@ -213,4 +235,9 @@ public class MainActivity extends AppActivity implements View.OnClickListener, V
         return super.onKeyDown(keyCode, event);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(broadcastReceiver);
+    }
 }

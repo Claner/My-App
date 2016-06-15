@@ -21,16 +21,6 @@
     <string name="btn_gridview_value">GridView</string>
     <string name="btn_listview_value">ListView</string>
     <string name="btn_hor_gridview_value">Hor_GridView</string>
-    <string name="btn_notifications_value">新消息提醒</string>
-    <string name="btn_donotdisturb_value">勿扰模式</string>
-    <string name="btn_chat_value">聊天</string>
-    <string name="btn_privacy_value">隐私</string>
-    <string name="btn_general_value">通用</string>
-    <string name="btn_myaccount_value">账号与安全</string>
-    <string name="btn_facebook_value">在facebook上赞我们</string>
-    <string name="btn_twitter">在Twitter上关注我们</string>
-    <string name="btn_about_value">关于</string>
-    <string name="btn_logout_value">退出</string>
     <string name="btn_imageSelter_value">图片选择器</string>
     <string name="dir_item_name_value">所有图片</string>
     <string name="dir_count_value">100张</string>

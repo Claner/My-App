@@ -153,6 +153,6 @@ public class CustomView extends View {
         paint.setColor(getResources().getColor(android.R.color.holo_orange_dark));
         paint.setTextSize(100);
         //绘制文本
-        canvas.drawText("Clanner", 80, 150, paint);
+        canvas.drawText("Welcome", 80, 150, paint);
     }
 }
