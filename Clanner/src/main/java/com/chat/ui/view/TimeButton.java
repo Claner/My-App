@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -80,7 +79,6 @@ public class TimeButton extends Button implements View.OnClickListener {
     @Override
     public void setOnClickListener(OnClickListener l) {
         if (l instanceof TimeButton) {
-            Log.d("Hello","我想看看又没走到这里");
             super.setOnClickListener(l);
         } else {
             this.listener = l;

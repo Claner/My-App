@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:clanner="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+        <com.chat.ui.view.PieceView
+            android:id="@+id/pv_white"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            clanner:piece_icon="@drawable/stone_w2"
+            clanner:piece_text="White"
+            clanner:piece_text_size="12sp"/>
+
+        <com.chat.ui.view.PieceView
+            android:id="@+id/pv_black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            clanner:piece_icon="@drawable/stone_b1"
+            clanner:piece_text="Black"
+            clanner:piece_text_size="12sp"/>
+
+        <!--<TextView-->
+        <!--android:id="@+id/tv_white"-->
+        <!--android:textSize="20sp"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:text="White"/>-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/tv_black"-->
+        <!--android:text="Black"-->
+        <!--android:textSize="20sp"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"/>-->
+
+        <Button
+            android:id="@+id/btn_restart"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            android:background="@drawable/btn_color"
+            android:text="重新开始"/>
+
+    </LinearLayout>
+
+    <com.chat.ui.view.WuziqiPanel
+        android:id="@+id/wuziqi"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>

@@ -11,4 +11,14 @@
         <attr name="my_text"/>
         <attr name="my_text_size"/>
     </declare-styleable>
+
+    <attr name="piece_icon" format="reference"/>
+    <attr name="piece_text" format="string"/>
+    <attr name="piece_text_size" format="dimension"/>
+
+    <declare-styleable name="pieceView">
+        <attr name="piece_icon"/>
+        <attr name="piece_text"/>
+        <attr name="piece_text_size"/>
+    </declare-styleable>
 </resources>

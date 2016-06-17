@@ -10,9 +10,29 @@ import android.view.View;
  * Created by Clanner on 2016/6/2.
  */
 public class CustomView extends View {
+    public CustomView(Context context){
+        super(context);
+    }
+
     public CustomView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
+
+//    @Override
+//    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+//        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
+//        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+//        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
+//        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+//
+//        int width = Math.min(widthSize, heightSize);
+//        if (widthMode == MeasureSpec.UNSPECIFIED) {
+//            width = heightSize;
+//        } else if (heightMode == MeasureSpec.UNSPECIFIED) {
+//            width = widthSize;
+//        }
+//        setMeasuredDimension(width, width);
+//    }
 
     @Override
     protected void onDraw(Canvas canvas) {
@@ -29,16 +49,16 @@ public class CustomView extends View {
          */
         //去锯齿
         paint.setAntiAlias(true);
-//        //设置颜色
-//        paint.setColor(getResources().getColor(android.R.color.holo_blue_light));
+        //设置颜色
+        paint.setColor(getResources().getColor(android.R.color.holo_blue_light));
 //        //绘制普通圆
-//        canvas.drawCircle(200, 200, 100, paint);
-//        //设置空心Style
-//        paint.setStyle(Paint.Style.STROKE);
-//        //设置空心边框的宽度
-//        paint.setStrokeWidth(20);
-//        //绘制空心圆
-//        canvas.drawCircle(200, 500, 90, paint);
+//        canvas.drawCircle(0, 0, 100, paint);
+        //设置空心Style
+        paint.setStyle(Paint.Style.STROKE);
+        //设置空心边框的宽度
+        paint.setStrokeWidth(20);
+        //绘制空心圆
+        canvas.drawCircle(0, 0, 90, paint);
 //
 //        /**
 //         * 绘制矩形：
@@ -142,17 +162,17 @@ public class CustomView extends View {
 //        RectF rel4 = new RectF(100, 1000, 300, 1200);
 //        canvas.drawArc(rel4, 0, 270, true, paint);
 
-        /**
-         * 绘制文字：drawText(String text, float x, float y, Paint paint)
-         *text： 文本
-         * x： 文本origin的x坐标
-         * y： 文本baseline的y坐标
-         * paint： 绘制风格
-         */
-        //设置颜色
-        paint.setColor(getResources().getColor(android.R.color.holo_orange_dark));
-        paint.setTextSize(100);
-        //绘制文本
-        canvas.drawText("Welcome", 80, 150, paint);
+//        /**
+//         * 绘制文字：drawText(String text, float x, float y, Paint paint)
+//         *text： 文本
+//         * x： 文本origin的x坐标
+//         * y： 文本baseline的y坐标
+//         * paint： 绘制风格
+//         */
+//        //设置颜色
+//        paint.setColor(getResources().getColor(android.R.color.holo_orange_dark));
+//        paint.setTextSize(100);
+//        //绘制文本
+//        canvas.drawText("Welcome", 250, 100, paint);
     }
 }
