@@ -24,6 +24,7 @@
     <string name="btn_imageSelter_value">图片选择器</string>
     <string name="dir_item_name_value">所有图片</string>
     <string name="dir_count_value">100张</string>
+    <string name="btn_create_qrcode_value">生成二维码</string>
 
 
     <string name="action_search">Search</string>

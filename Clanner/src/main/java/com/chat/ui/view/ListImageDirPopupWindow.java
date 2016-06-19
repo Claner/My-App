@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 import com.chat.entity.FolderBean;
 import com.chat.ui.activity.R;
-import com.chat.utils.ImageLoader;
+import com.chat.utils.Loader.ImageLoader;
 
 import java.util.List;
 
@@ -98,7 +98,7 @@ public class ListImageDirPopupWindow extends PopupWindow {
         wm.getDefaultDisplay().getMetrics(outMetrics);
 
         mWidth = outMetrics.widthPixels;
-        mHeight = (int) (outMetrics.heightPixels * 0.7);
+        mHeight = (int) (outMetrics.heightPixels * 0.75);
     }
 
     public interface OnDirSelectedLinstener {

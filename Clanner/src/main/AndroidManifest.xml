@@ -36,6 +36,7 @@
         </activity>
         <activity
             android:name=".SettingActivity"
+            android:windowSoftInputMode="adjustPan"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
     </application>
 

@@ -6,35 +6,52 @@
               android:background="#e3e3e3"
               android:orientation="vertical">
 
+        <!--<com.chat.ui.view.CustomView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="100dp"/>-->
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="90dp">
 
         <TextView
-            android:text="WelCome"
-            android:textSize="35sp"
-            android:textColor="#333333"
-            android:gravity="center"
-            android:layout_centerInParent="true"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="Welcome"
+            android:textColor="#333333"
+            android:textSize="35sp"/>
 
     </RelativeLayout>
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_marginTop="50dp"
-        android:id="@+id/usernameWrapper"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        <!--<EditText-->
+            <!--android:id="@+id/et_username"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"/>-->
+        <!---->
+        <!--<Button-->
+            <!--android:id="@+id/btn_clear"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:background="@mipmap/search_clear_pressed"-->
+            <!--android:layout_width="20dp"-->
+            <!--android:layout_height="20dp"/>-->
 
-        <EditText
-            android:id="@+id/et_username"
+        <android.support.design.widget.TextInputLayout
+            android:orientation="vertical"
+            android:id="@+id/usernameWrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:inputType="textEmailAddress"/>
-    </android.support.design.widget.TextInputLayout>
+            android:layout_marginTop="30dp">
+
+            <EditText
+                android:id="@+id/et_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:inputType="textEmailAddress"/>
+        </android.support.design.widget.TextInputLayout>
 
     <!--<Spinner-->
     <!--android:id="@+id/spinner"-->
@@ -48,7 +65,7 @@
     <android.support.design.widget.TextInputLayout
         android:id="@+id/passwordWrapper"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="60dp">
 
         <EditText
             android:id="@+id/et_password"
@@ -71,29 +88,29 @@
         android:layout_marginTop="10dp">
 
         <TextView
-            android:layout_marginLeft="4dp"
             android:id="@+id/tv_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
+            android:layout_marginLeft="4dp"
             android:text="@string/tv_register_value"/>
 
         <TextView
             android:id="@+id/tv_promise"
-            android:layout_marginRight="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:layout_marginRight="4dp"
             android:text="@string/tv_promise_value"/>
 
         <TextView
             android:id="@+id/tv_forget"
-            android:layout_marginBottom="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_below="@+id/tv_register"
             android:layout_centerInParent="true"
+            android:layout_marginBottom="4dp"
             android:gravity="bottom"
             android:text="@string/tv_forget_value"
             android:textSize="15sp"/>

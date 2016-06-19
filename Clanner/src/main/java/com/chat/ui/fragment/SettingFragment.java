@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -12,6 +14,9 @@ import android.widget.ListView;
 import com.chat.ui.activity.LoginActivity;
 import com.chat.ui.activity.R;
 import com.chat.ui.fragment.fragmentFromSetting.AboutFragment;
+import com.chat.ui.fragment.fragmentFromSetting.PieFragment;
+import com.chat.ui.fragment.fragmentFromSetting.PractiseFragment;
+import com.chat.ui.fragment.fragmentFromSetting.WuziqiFragment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,6 +31,7 @@ public class SettingFragment extends BaseFragment implements ListView.OnItemClic
     private ListView listView2;
     private List<String> datas;
     private List<String> datas2;
+    private List<String> datas3;
     //    private SettingAdapter adapter
     private ArrayAdapter<String> adapter;
     private ArrayAdapter<String> adapter2;
@@ -42,25 +48,50 @@ public class SettingFragment extends BaseFragment implements ListView.OnItemClic
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
         setDatas();
-        initView(view);
+        initLayout(view);
     }
 
-    private void initView(View view) {
+    private void initLayout(View view) {
 
         setHasOptionsMenu(true);
+        //设置ActionBar
         ActionBar actionBar = getHoldingActivity().getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle("设置");
 
+        //设置ListView1的适配器
         listView = (ListView) view.findViewById(R.id.listview);
-        adapter = new ArrayAdapter<String>(getContext(), R.layout.item_setting, datas);
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(this);
-
         listView2 = (ListView) view.findViewById(R.id.listview2);
-        adapter2 = new ArrayAdapter<String>(getContext(), R.layout.item_setting, datas2);
-        listView2.setAdapter(adapter2);
+        listView.setOnItemClickListener(this);
         listView2.setOnItemClickListener(this);
+        adapter = new ArrayAdapter<String>(getContext(), R.layout.item_setting, datas);
+        adapter2 = new ArrayAdapter<String>(getContext(), R.layout.item_setting, datas2);
+        listView.setAdapter(adapter);
+        listView2.setAdapter(adapter2);
+
+        //设置listview1的动画
+//        setLayoutAnimation(listView);
+//        listView.setLayoutAnimationListener(new Animation.AnimationListener() {
+//            @Override
+//            public void onAnimationStart(Animation animation) {
+//                listView2.setAdapter(new ArrayAdapter<String>(getContext(), R.layout.item_setting, datas3));
+//            }
+//
+//            @Override
+//            public void onAnimationEnd(Animation animation) {
+//                //设置listview2的适配器
+//                adapter2 = new ArrayAdapter<String>(getContext(), R.layout.item_setting, datas2);
+//                listView2.setAdapter(adapter2);
+//                //设置listview2的动画
+//                setLayoutAnimation(listView2);
+//            }
+//
+//            @Override
+//            public void onAnimationRepeat(Animation animation) {
+//
+//            }
+//        });
+
 //        adapter = new SettingAdapter(getHoldingActivity().getApplicationContext(), datas);
 //        listView.setAdapter(adapter);
     }
@@ -69,10 +100,11 @@ public class SettingFragment extends BaseFragment implements ListView.OnItemClic
      * 设置数据
      */
     private void setDatas() {
-        datas = new ArrayList<>(Arrays.asList("Notifications", "Do Not Disturb", "Chat", "Privacy",
+        datas = new ArrayList<>(Arrays.asList("五子棋", "练习", "饼状图", "Privacy",
                 "General", "My Account", "Like Us On Facebook", "Follow Us On Twitter"));
 
         datas2 = new ArrayList<>(Arrays.asList("About", "Log Out"));
+        datas3 = new ArrayList<>(Arrays.asList("", ""));
 //        datas = new ArrayList<>();
 //        datas.add("Notifications");
 //        datas.add("Do Not Disturb");
@@ -82,6 +114,19 @@ public class SettingFragment extends BaseFragment implements ListView.OnItemClic
 //        datas.add("My Account");
 //        datas.add("Like Us On Facebook");
 //        datas.add("Follow Us On Twitter");
+    }
+
+    /**
+     * 设置listview的动画
+     *
+     * @param lv
+     */
+    private void setLayoutAnimation(ListView lv) {
+        LayoutAnimationController lac = new LayoutAnimationController
+                (AnimationUtils.loadAnimation(getHoldingActivity(), R.anim.zoom_in));
+        lac.setOrder(LayoutAnimationController.ORDER_NORMAL);
+        lv.setLayoutAnimation(lac);
+        lv.startLayoutAnimation();
     }
 
     @Override
@@ -102,10 +147,13 @@ public class SettingFragment extends BaseFragment implements ListView.OnItemClic
     private void list1_onClickListener(int i) {
         switch (i) {
             case 0:
+                addFragment(WuziqiFragment.newInstance());
                 break;
             case 1:
+                addFragment(PractiseFragment.newInsatnce());
                 break;
             case 2:
+                addFragment(PieFragment.newInstance());
                 break;
             case 3:
                 break;
@@ -144,7 +192,7 @@ public class SettingFragment extends BaseFragment implements ListView.OnItemClic
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
                 removeFragment();
                 break;

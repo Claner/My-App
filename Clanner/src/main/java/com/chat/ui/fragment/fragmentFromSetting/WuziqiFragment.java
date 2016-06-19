@@ -62,6 +62,10 @@ public class WuziqiFragment extends BaseFragment implements WuziqiPanel.OnWhichL
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * 用接口回调的方式监听轮到谁下子
+     * @param isWhite
+     */
     @Override
     public void onWhich(boolean isWhite) {
         boolean flag = isWhite;

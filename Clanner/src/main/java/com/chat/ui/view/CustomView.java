@@ -10,7 +10,7 @@ import android.view.View;
  * Created by Clanner on 2016/6/2.
  */
 public class CustomView extends View {
-    public CustomView(Context context){
+    public CustomView(Context context) {
         super(context);
     }
 
@@ -18,26 +18,28 @@ public class CustomView extends View {
         super(context, attrs);
     }
 
-//    @Override
-//    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-//        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
-//        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
-//        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
-//        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
-//
-//        int width = Math.min(widthSize, heightSize);
-//        if (widthMode == MeasureSpec.UNSPECIFIED) {
-//            width = heightSize;
-//        } else if (heightMode == MeasureSpec.UNSPECIFIED) {
-//            width = widthSize;
-//        }
-//        setMeasuredDimension(width, width);
-//    }
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        int widthSize = MeasureSpec.getSize(widthMeasureSpec);  //取出宽度的确切数值
+        int widthMode = MeasureSpec.getMode(widthMeasureSpec);  //取出宽度的测量模式
+
+        int heightSize = MeasureSpec.getSize(heightMeasureSpec);    //取出高度的确切数值
+        int heightMode = MeasureSpec.getMode(heightMeasureSpec);    //取出高度的测量模式
+
+        setMeasuredDimension(widthSize, heightSize);
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        // 这是因为View的大小不仅由View本身控制，而且受父控件的影响，所以我们在确定View大小的时候最好使用系统提供的onSizeChanged回调函数。
+        super.onSizeChanged(w, h, oldw, oldh);
+    }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+        //创建一个画笔
         Paint paint = new Paint();
 
         /**
@@ -58,7 +60,13 @@ public class CustomView extends View {
         //设置空心边框的宽度
         paint.setStrokeWidth(20);
         //绘制空心圆
-        canvas.drawCircle(0, 0, 90, paint);
+        canvas.drawCircle(90, 90, 90, paint);
+        canvas.drawCircle(getMeasuredWidth() - 90, 90, 90, paint);
+        //绘制点
+        canvas.drawPoint(90, 90, paint);
+        canvas.drawPoint(getMeasuredWidth() - 90, 90, paint);
+        //绘制点
+        canvas.drawLine(90, 90, getMeasuredWidth() - 90, 90, paint);
 //
 //        /**
 //         * 绘制矩形：
@@ -175,4 +183,59 @@ public class CustomView extends View {
 //        //绘制文本
 //        canvas.drawText("Welcome", 250, 100, paint);
     }
+
+    /**
+     * 自定义View
+     *
+     * view的坐标系
+     *  getTop();       //获取子View左上角距父View顶部的距离
+     *  getLeft();      //获取子View左上角距父View左侧的距离
+     *  getBottom();    //获取子View右下角距父View顶部的距离
+     *  getRight();     //获取子View右下角距父View左侧的距离
+     *
+     *  测量模式
+     *  模式          二进制值        描述
+     *  UNSPECIFIED	    00	        默认值，父控件没有给子view任何限制，子View可以设置为任意大小。
+     *  EXACTLY	        01	        表示父控件已经确切的指定了子View的大小。
+     *  AT_MOST	        10	        表示子View具体大小没有尺寸限制，但是存在上限，上限一般为父View大小。
+     *
+     *  Canvas简介
+     *
+     *  Canvas我们可以称之为画布，能够在上面绘制各种东西，是安卓平台2D图形绘制的基础，非常强大。
+     *
+     *  绘制颜色：
+     *  drawColor, drawRGB, drawARGB	使用单一颜色填充整个画布
+     *
+     *  绘制基本形状：
+     *  drawPoint, drawPoints, drawLine, drawLines, drawRect, drawRoundRect, drawOval, drawCircle, drawArc
+     *  依次为 点、线、矩形、圆角矩形、椭圆、圆、圆弧
+     *
+     *  绘制图片：
+     *  drawBitmap, drawPicture	绘制位图和图片
+     *
+     *  绘制文本：
+     *  drawText, drawPosText, drawTextOnPath
+     *  依次为 绘制文字、绘制文字时指定每个文字位置、根据路径绘制文字
+     *
+     *  绘制路径：
+     *  drawPath    绘制路径，绘制贝塞尔曲线时也需要用到该函数
+     *
+     *  顶点操作：
+     *  drawVertices, drawBitmapMesh
+     *  通过对顶点操作可以使图像形变，drawVertices直接对画布作用、 drawBitmapMesh只对绘制的Bitmap作用
+     *
+     *  画布裁剪：
+     *  clipPath, clipRect	设置画布的显示区域
+     *
+     *  画布快照：
+     *  save, restore, saveLayerXxx, restoreToCount, getSaveCount
+     *  依次为 保存当前状态、 回滚到上一次保存的状态、 保存图层状态、 回滚到指定状态、 获取保存次数
+     *
+     *  画布变换：
+     *  translate, scale, rotate, skew	依次为 位移、缩放、 旋转、倾斜
+     *
+     *  Matrix(矩阵)
+     *  getMatrix, setMatrix, concat
+     *  实际画布的位移，缩放等操作的都是图像矩阵Matrix，只不过Matrix比较难以理解和使用，故封装了一些常用的方法。
+     */
 }

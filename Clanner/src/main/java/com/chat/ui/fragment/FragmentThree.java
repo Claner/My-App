@@ -5,10 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,7 +23,7 @@ import com.xys.libzxing.zxing.encoding.EncodingUtils;
 /**
  * Created by Clanner on 2016/5/26.
  */
-public class FragmentThree extends BaseFragment implements View.OnClickListener {
+public class FragmentThree extends BaseFragment implements View.OnClickListener, View.OnLongClickListener {
 
     private EditText et_qrContent;
     private TextView qrText;
@@ -49,10 +51,12 @@ public class FragmentThree extends BaseFragment implements View.OnClickListener 
 
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
+        getHoldingActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         view.findViewById(R.id.btn_imageSelter).setOnClickListener(this);
         view.findViewById(R.id.btn_createqrcode).setOnClickListener(this);
         et_qrContent = (EditText) view.findViewById(R.id.et_qrcontent);
         qr_imageview = (ImageView) view.findViewById(R.id.qr_imageview);
+        qr_imageview.setOnLongClickListener(this);
         qrText = (TextView) view.findViewById(R.id.qrText);
         final TextInputLayout et_qrContentWrapper = (TextInputLayout) view.findViewById(R.id.et_qrcontentwrapper);
         et_qrContentWrapper.setHint("请输入要转换为二维码的内容");
@@ -76,6 +80,12 @@ public class FragmentThree extends BaseFragment implements View.OnClickListener 
         }
     }
 
+    @Override
+    public boolean onLongClick(View view) {
+        Toast.makeText(getHoldingActivity().getApplicationContext(), "长按", Toast.LENGTH_SHORT).show();
+        return true;
+    }
+
     /**
      * 生成二维码
      */
@@ -90,8 +100,15 @@ public class FragmentThree extends BaseFragment implements View.OnClickListener 
              * 第三个参数：高
              * 第四个参数：loga
              */
-            Bitmap bitmap = EncodingUtils.createQRCode(content, 500, 500, null);
+            Bitmap bitmap = EncodingUtils.createQRCode(content, 500, 500,
+                    BitmapFactory.decodeResource(getResources(), R.mipmap.welcome));
             qr_imageview.setImageBitmap(bitmap);
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        getHoldingActivity().unregisterReceiver(receiver);
     }
 }

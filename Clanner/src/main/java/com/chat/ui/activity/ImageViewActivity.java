@@ -74,6 +74,9 @@ public class ImageViewActivity extends AppCompatActivity {
         initEvent();
     }
 
+    /**
+     * 初始化控件
+     */
     private void initView() {
         mGridView = (GridView) findViewById(R.id.gridView);
         mBottomLy = (RelativeLayout) findViewById(R.id.bottom_ly);

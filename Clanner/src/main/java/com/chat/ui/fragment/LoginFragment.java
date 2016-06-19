@@ -136,6 +136,8 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
                             progressDialog.dismiss();
                             Intent intent = new Intent(getActivity(), MainActivity.class);
                             startActivity(intent);
+                            //以下方法只适用于5.0之后的系统
+                            getHoldingActivity().overridePendingTransition(R.anim.abc_popup_enter, R.anim.abc_popup_exit);
                             getHoldingActivity().finish();
                         }
                     } catch (JsonSyntaxException e2) {

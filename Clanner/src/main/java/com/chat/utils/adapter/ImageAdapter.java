@@ -10,7 +10,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.chat.ui.activity.R;
-import com.chat.utils.ImageLoader;
+import com.chat.utils.Loader.ImageLoader;
 
 import java.util.HashSet;
 import java.util.List;

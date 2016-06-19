@@ -8,11 +8,11 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.chat.ui.fragment.BaseFragment;
@@ -22,6 +22,7 @@ import com.chat.ui.fragment.FragmentThree;
 import com.chat.ui.fragment.FragmentTwo;
 import com.chat.ui.view.MyView;
 import com.chat.utils.DoubleClickExitHelper;
+import com.xys.libzxing.zxing.activity.CaptureActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,13 +36,12 @@ public class MainActivity extends AppActivity implements View.OnClickListener, V
     private DoubleClickExitHelper doubleClickExitHelper;
 
     private List<MyView> mTabIndicators = new ArrayList<MyView>();
-
+    private static final int requsetCode = 1;
     private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             //接收广播，若收到的信号为finish则finish当前Activity
             if (intent.getAction().equals("finish")) {
-                Log.e("Hello","收到终止Activity的广播");
                 finish();
             }
         }
@@ -49,6 +49,7 @@ public class MainActivity extends AppActivity implements View.OnClickListener, V
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         super.onCreate(savedInstanceState);
         setContentView(getContentViewId());
         initView();
@@ -90,6 +91,9 @@ public class MainActivity extends AppActivity implements View.OnClickListener, V
                 break;
             case R.id.money:
                 Toast.makeText(MainActivity.this, "钱包", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.scan:
+                startActivityForResult(new Intent(this, CaptureActivity.class),requsetCode);
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -239,5 +243,25 @@ public class MainActivity extends AppActivity implements View.OnClickListener, V
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(broadcastReceiver);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK){
+            Bundle bundle = data.getExtras();
+            String result = bundle.getString("result");
+            sendContent(result);
+        }
+    }
+
+    /**
+     * 通过广播发送内容给FragmentThree
+     * @param result
+     */
+    private void sendContent(String result) {
+        Intent intent = new Intent("content");
+        intent.putExtra("qrcontent",result);
+        sendBroadcast(intent);
     }
 }

@@ -27,4 +27,8 @@
         android:id="@+id/money"
         android:title="@string/monet_value"/>
 
+    <item
+        android:id="@+id/scan"
+        android:title="扫一扫"/>
+
 </menu>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--渐变尺寸缩放动画-->
+    <!--fromXDelta,fromYDelta    起始时X，Y座标,屏幕右下角的座标是X:320,Y:480,屏幕右下角的座标是X:320,Y:480-->
+    <!--toXDelta， toYDelta      动画结束时X,Y的座标-->
+    <!--interpolator             指定动画插入器-->
+    <!--加速插入器                accelerate_interpolator-->
+    <!--减速插入器                decelerate_interpolator-->
+    <!--pivotX，  pivotY         动画起始位置，相对于屏幕的百分比,两个都为50%表示动画从屏幕中间开始-->
+    <scale
+        android:duration="2000"
+        android:fillAfter="false"
+        android:fromXScale="0.0"
+        android:fromYScale="0.0"
+        android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:toXScale="1.0"
+        android:toYScale="1.0"/>
+
+</set>
